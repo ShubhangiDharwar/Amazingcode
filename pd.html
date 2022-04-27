@@ -1,0 +1,80 @@
+
+<!DOCTYPE html>
+<html>
+ <head>
+   <title>Personal Detail Page</title>
+   <style>
+	body{
+		background:linear-gradient(to right, #ff33ff, #0033ff);
+	}
+    .err{
+       color:#0000ff;
+       background:#ffff00;
+     }
+    input[type="submit"] {
+		background:linear-gradient( #33ff00, #ffff00);
+		border:none;
+		width:165px;
+		height:25px;
+	}
+    input[type="submit"]:hover{
+		background:linear-gradient(#ffff00, #33ff00);
+	}
+   </style>
+ </head>
+<body>
+  <form id="f1" action="thankyou.html" method="post">
+    <h2 id="head1"> <u> Personal Details </u> </h2>
+	<label>FullName</label> <br>
+	<input type="text" id="tna" required> <br> <output id="errna" class="err"> </output>
+  	<br>
+
+	<label>Email Id</label> <br>
+	<input type="email" id="tmid" required>
+  	<br>
+    <label>Phone Number</label> <br>
+	<input type="text"id="tmob" required> <output id="errmob" class="err"> </output>
+	<img src="jio logo.png"width="15px" height="15px">
+
+	<br>
+
+
+    <input type="submit" id="sb" value="Submit">
+  </form>
+
+  <script>
+    document.getElementById("f1").addEventListener("submit", checkData);
+
+    function checkData(f)
+	{
+      let una=document.getElementById("tna").value;
+      //checking name with reg-expr with only alphabets
+
+     var nameexpr = /d^[A-Za-z ]*$/;
+	  if( nameexpr.test(una)==false || una==""){
+         f.preventDefault();
+         document.getElementById("errna").innerHTML="Plz Enter Valid Name";
+      }else{
+		  document.getElementById("errna").innerHTML="";
+	  }
+	  }
+
+
+	document.getElementById('tmob').addEventListener('input', function (e) {
+	  var x = e.target.value.replace(/\D/g, '').match(/(\d{0,3})(\d{0,3})(\d{0,4})/);
+	  e.target.value = !x[2] ? x[1] : '(' + x[1] + ') ' + x[2] + (x[3] ? '-' + x[3] : '');
+
+
+
+});
+
+
+
+
+
+
+
+  </script>
+</body>
+</html>
+
