@@ -1,0 +1,49 @@
+<html>
+<head>
+  <style><!--css settings-->
+ 	body{
+ 		background:linear-gradient(to right, #ff33ff, #0033ff);
+ 	}
+     .err{
+        color:#0000ff;
+        background:#ffff00;
+      }
+     input[type="submit"] {
+ 		background:linear-gradient( #33ff00, #ffff00);
+ 		border:none;
+ 		width:165px;
+ 		height:25px;
+ 	}
+     input[type="submit"]:hover{
+ 		background:linear-gradient(#ffff00, #33ff00);
+ 	}
+   </style>
+</head>
+
+<body><!-- body for the data. -->
+
+<div class="div">
+
+<button type="button" onclick="getotp()">Send OTP</button><br>
+Dear Abha,<br>
+Thank you for your enqiry A<span id="otp"></span> digit verification number has send to your Phone number 7857709546.
+</div>
+<input type="text"/>
+<input type="button" value="validate"/>
+
+<script><!-- Inline script for validating data. -->
+function getotp()//function for sending otp
+{
+let no='1234567890';
+let OTP='';
+for(let i=0;i<4;i++)
+{
+OTP+=no[Math.floor(Math.random()*10)];
+}
+document.getElementById('otp').innerHTML=OTP;
+
+}
+
+</script>
+</body>
+</html>
